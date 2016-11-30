@@ -1,0 +1,43 @@
+my_app_user_reservation:
+    resource: "@MyAppUserBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
+my_app_user_homepage:
+    path:     /
+    defaults: { _controller: MyAppUserBundle:Default:index }
+
+my_app_notfnd:
+    path:     /notfnd
+    defaults: { _controller: MyAppUserBundle:Default:notfnd }
+
+my_app_blog_archive:
+    path:     /blog_archive
+    defaults: { _controller: MyAppUserBundle:Default:blogarchive }
+
+my_app_blog_single:
+    path:     /blog_single
+    defaults: { _controller: MyAppUserBundle:Default:blogsingle }
+
+my_app_contact:
+    path:     /contact
+    defaults: { _controller: MyAppUserBundle:Default:contact }
+
+my_app_gallery:
+    path:     /gallery
+    defaults: { _controller: MyAppUserBundle:Default:gallery }
+
+my_app_properties:
+    path:     /properties
+    defaults: { _controller: MyAppUserBundle:Default:properties }
+
+my_app_properties_detail:
+    path:     /properties_detail
+    defaults: { _controller: MyAppUserBundle:Default:propertiesdetail }
+
+my_app_register:
+    path:     /register
+    defaults: { _controller: MyAppUserBundle:Default:register }
+
+my_app_signin:
+    path:     /signin
+    defaults: { _controller: MyAppUserBundle:Default:signin }
