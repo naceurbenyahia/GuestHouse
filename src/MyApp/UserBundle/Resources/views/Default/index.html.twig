@@ -63,17 +63,12 @@
                                 </div>
                                 <div class="aa-email hidden-xs">
                                     <span class="fa fa-envelope-o"></span> info@GuestHouse.com
-                                    <div>
-                                        {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username }, 'FOSUserBundle') }} |
-                                            <a href="{{ path('fos_user_security_logout') }}">
-                                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                            </a>
-                                        {% else %}
-                                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                        {% endif %}
-                                    </div>
+
                                 </div>
+                                <div>
+
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -249,6 +244,9 @@
                         </div>
                         <div class="col-md-2">
                             <div class="aa-single-advance-search">
+
+
+
                                 <select>
                                     <option value="0" selected>Category</option>
                                     <option value="1">Flat</option>
@@ -256,6 +254,7 @@
                                     <option value="3">Plot</option>
                                     <option value="4">Commercial</option>
                                 </select>
+
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -549,9 +548,8 @@
             <div class="col-md-12">
                 <div class="aa-service-area">
                     <div class="aa-title">
-                        <h2>Our Service</h2>
-                        <span></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sit ea nobis quae vero voluptatibus.</p>
+                        {% block Reservation %}
+                        {% endblock Reservation %}
                     </div>
                     <!-- service content -->
                     <div class="aa-service-content">
@@ -612,6 +610,8 @@
 <!-- Promo Banner Section -->
 <section id="aa-promo-banner">
     <div class="container">
+
+
         <div class="row">
             <div class="col-md-12">
                 <div class="aa-promo-banner-area">
@@ -621,7 +621,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 </section>
 <!-- / Promo Banner Section -->
 

@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Reservations list</h1>
 
-    <table>
+    <table border="1" class="table">
         <thead>
             <tr>
                 <th>Idrv</th>
@@ -23,10 +23,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('reservation_show', { 'id': reservation.idRv }) }}">show</a>
+                            <a href="{{ path('reservation_show', { 'id': reservation.idRv }) }}"class="aa-secondary-btn">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('reservation_edit', { 'id': reservation.idRv }) }}">edit</a>
+                            <a href="{{ path('reservation_edit', { 'id': reservation.idRv }) }}"class="aa-secondary-btn">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -37,7 +37,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('reservation_new') }}">Create a new reservation</a>
+            <a href="{{ path('reservation_new') }}" class="aa-primary-btn">Crééer une nouvelle réservation</a>
         </li>
     </ul>
 {% endblock %}
