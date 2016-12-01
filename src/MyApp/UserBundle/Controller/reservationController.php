@@ -4,7 +4,10 @@ namespace MyApp\UserBundle\Controller;
 
 use MyApp\UserBundle\Entity\Reservation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Reservation controller.
@@ -34,10 +37,15 @@ class reservationController extends Controller
     public function newAction(Request $request)
     {
         $reservation = new Reservation();
+        $datedepart = new \DateTime();
+        $reservation->setDatedepart($datedepart);
+        $datearrive = new \DateTime();
+        $reservation->setDatearrivee($datearrive);
+
         $form = $this->createForm('MyApp\UserBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() ) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
             $em->flush($reservation);
