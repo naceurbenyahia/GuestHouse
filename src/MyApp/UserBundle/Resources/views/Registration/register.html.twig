@@ -1,7 +1,7 @@
-{% extends "@MyAppUser/Default/index.html.twig" %}
-{% block Register %}
+{% extends "@MyAppUser/layout.html.twig" %}
+{% block fos_user_content %}
 
     {% include ('FOSUserBundle:Registration:register_content.html.twig') %}
 
-{% endblock Register %}
+{% endblock fos_user_content %}
 

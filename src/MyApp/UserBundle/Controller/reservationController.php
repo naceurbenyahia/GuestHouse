@@ -41,6 +41,7 @@ class reservationController extends Controller
         $reservation->setDatedepart($datedepart);
         $datearrive = new \DateTime();
         $reservation->setDatearrivee($datearrive);
+        $reservation->setIdP($this->getUser()->getId());
 
         $form = $this->createForm('MyApp\UserBundle\Form\ReservationType', $reservation);
         $form->handleRequest($request);

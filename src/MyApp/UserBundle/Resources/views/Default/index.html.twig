@@ -51,6 +51,18 @@
 <!-- Start header section -->
 <header id="aa-header">
     <div class="container">
+        <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+
+
         <div class="row">
             <div class="col-md-12">
                 <div class="aa-header-area">
@@ -63,18 +75,13 @@
                                 </div>
                                 <div class="aa-email hidden-xs">
                                     <span class="fa fa-envelope-o"></span> info@GuestHouse.com
-
                                 </div>
-                                <div>
-
-                                </div>
-
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="aa-header-right">
-                                <a href="{{ path('my_app_register') }}" class="aa-register">Register</a>
-                                <a href="{{ path('my_app_signin') }}" class="aa-login">Login</a>
+                                <a href="{{ path('fos_user_registration_register') }}" class="aa-register">Register</a>
+                                <a href="{{ path('fos_user_security_login') }} "class="aa-login">Login</a>
                             </div>
                         </div>
                     </div>
@@ -138,14 +145,19 @@
             <!-- Top slider single slide -->
             <div class="aa-top-slider-single">
                 <img src="{{ asset('bundles/myapp/img/slider/3.jpg') }}" alt="img">
+
                 <!-- Top slider content -->
                 <div class="aa-top-slider-content">
+                    {% block connexion %}
+
                     <span class="aa-top-slider-catg">Duplex</span>
                     <h2 class="aa-top-slider-title">1560 Square Feet</h2>
                     <p class="aa-top-slider-location"><i class="fa fa-map-marker"></i>South Beach, Miami (USA)</p>
                     <span class="aa-top-slider-off">30% OFF</span>
                     <p class="aa-top-slider-price">$460,000</p>
                     <a href="#" class="aa-top-slider-btn">Read More <span class="fa fa-angle-double-right"></span></a>
+                    {% endblock connexion %}
+
                 </div>
                 <!-- / Top slider content -->
             </div>
